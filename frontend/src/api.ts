@@ -1,4 +1,4 @@
-const BASE = import.meta.env.VITE_API_BASE || "http://localhost:3000";
+const BASE = "https://simple-contact-manager-7o3z.onrender.com";
 
 export async function listContacts(params: {
     q?: string;
