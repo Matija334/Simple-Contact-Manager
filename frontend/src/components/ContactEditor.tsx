@@ -1,5 +1,6 @@
 import React from "react";
 import type {Contact} from "../types";
+import { trackHotjarEvent } from "../analytics";
 
 type Props = {
     initial?: Partial<Contact>;
@@ -17,6 +18,10 @@ export default function ContactEditor({ initial = {}, onCancel, onSave }: Props)
         notes: "",
         ...initial,
     });
+
+    React.useEffect(() => {
+        trackHotjarEvent("contact_form_variant_N3JU");
+    }, []);
 
     function set<K extends keyof Contact>(key: K, v: Contact[K]) {
         setForm(prev => ({ ...prev, [key]: v }));
